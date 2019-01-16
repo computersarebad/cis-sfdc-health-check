@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!-- 
+     This file has been modified to adhere to the spirit of applicable CIS Benchmarks in accordance to Saleforce guidance:
+     https://help.salesforce.com/articleView?id=security_custom_baseline_file_requirements.htm
+-->
+
+<baseline name="CIS Benchmark v1" developerName="cisbenchmarkv1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="security-risk-baseline.xsd">
+      
+      <highRiskSecuritySettings>
+        <booleanSetting name="SessionSettings.lockSessionsToDomain" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.enableSmsIdentity" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.clickjackSetup" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.clickjackNonSetup" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.clickjackVisualForceHeaders" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.clickjackVisualForceNoHeaders" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.csrfGet" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.csrfPost" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.requireSecureConnections" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.requireHttpOnly" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.upgradeInsecureRequests" compliant="true" nonCompliant="critical"/>
+        <numericRangeSetting name="FileUploadAndDownloadSecurity.hybridSecurityRiskFileTypes" compliant="0.0" warning="0.5"/>
+        <enumSetting name="PasswordPolicies.maxLoginAttempts" compliant="ThreeAttempts" warning ="FiveAttempts,TenAttempts" critical="NoLimit"/>
+        <numericRangeSetting name="CertificateAndKeyManagement.expiredCert" compliant="0.0" warning="1.0"/>
+      </highRiskSecuritySettings>
+      
+      <mediumRiskSecuritySettings>
+        <booleanSetting name="PasswordPolicies.minOneDayPasswordLifetime" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.forceRelogin" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.enforceLoginIp" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.cspOnEmail" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.xssProtection" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.contentSniffingProtection" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="LoginAccessPolicies.adminLoginAsAnyUser" compliant="false" nonCompliant="critical"/>
+        <numericRangeSetting name="PasswordPolicies.history" compliant="24.0" warning="12.0"/>
+        <numericRangeSetting name="PasswordPolicies.minPasswordLength" compliant="14.0" warning="10.0"/>
+        <enumSetting name="PasswordPolicies.expiration" compliant="ThirtyDays,SixtyDays" warning="NinetyDays" critical="SixMonths,OneYear,Never"/>
+        <enumSetting name="PasswordPolicies.complexity" compliant="SpecialCharacters,UpperLowerCaseNumeric,UpperLowerCaseNumericSpecialCharacters" critical="AlphaNumeric,NoRestriction"/>
+      </mediumRiskSecuritySettings>
+      
+      <lowRiskSecuritySettings>
+        <booleanSetting name="PasswordPolicies.obscureSecretAnswer" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.forceLogoutOnTimeout" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.icOn2faRegistration" compliant="true" nonCompliant="critical"/>
+        <booleanSetting name="SessionSettings.icOnEmailChange" compliant="true" nonCompliant="critical"/>
+        <numericRangeSetting name="RemoteSiteSettings.remoteSiteSettings" compliant="0.0" warning="1.0"/>
+        <enumSetting name="PasswordPolicies.questionRestriction" compliant="DoesNotContainPassword" warning="None" />
+        <enumSetting name="PasswordPolicies.lockoutInterval" compliant="FifteenMinutes,ThirtyMinutes,SixtyMinutes" warning="Forever"/>
+        <enumSetting name="SessionSettings.timeout" compliant="FifteenMinutes,ThirtyMinutes,SixtyMinutes,TwoHours" warning="FourHours" critical="EightHours,TwelveHours,TwentyFourHours"/>
+      </lowRiskSecuritySettings>
+      
+      <informationalSecuritySettings>
+       <numericRangeSetting name="CertificateAndKeyManagement.keySize" compliant="4096.0" warning="2048.0"/>
+       <numericRangeSetting name="CertificateAndKeyManagement.certExpiration" compliant="180.0" warning="1.0"/>
+       <booleanSetting name="SessionSettings.hstsOnForcecomSites" compliant="true" nonCompliant="critical"/>
+      </informationalSecuritySettings>
+
+</baseline>
