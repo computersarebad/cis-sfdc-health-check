@@ -6,12 +6,6 @@
   },
   "detail": {
     "contributors": [],
-    "diagrams": [
-      {
-        "title": "Init threat model diagram",
-        "thumbnail": "./public/content/images/thumbnail.jpg",
-        "id": 0
-      }
-    ]
+    "diagrams": []
   }
 }
